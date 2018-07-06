@@ -1,0 +1,40 @@
+<html>
+	<body>
+		<script src="vue.js"></script>
+		<div id="app">
+			<div v-bind:title="message">
+
+				<form v-on:submit.prevent="formSubmit">
+
+					<p>{{ message }}</p>
+					V-mod <input v-model="message"><br>
+					No-bind <input :value="memessage"><br> <!-- bind shortcut + computed variable -->
+
+					<label for="tosee">Seeya</label>
+					<input type="checkbox" id="tosee" v-model="seen">
+					<p>
+						<span v-if="seen">Now you see me</span>
+					</p>
+
+					<ul>
+						<li v-for="g in glist">{{ g.text }}</li>
+					</ul>
+
+					<button v-on:click="clickhand">Hand a clik</button>
+					<br>
+					<input type="submit" value="Sub-mitt">
+
+					<input type="edit" v-model="watched">
+					<p>{{ rewatched }}</p>
+					<ul>
+						<!-- defined as component in JS -->
+						<anitem v-for="g in glist" v-for="g in glist" v-bind:type="g"></anitem>
+					</ul>
+				</form>				
+			</div>
+		</div>
+
+		<script src="index.js"></script>
+			
+	</body>
+</html>
